@@ -57,8 +57,8 @@ public class AuthServiceTest {
     void setUp() {
         registerRequest = new RegisterRequest();
         registerRequest.setFullName("John Doe");
-        registerRequest.setEmail("john.doe@college.edu");
-        registerRequest.setCollegeId("CS202699");
+        registerRequest.setEmail("2X100X0XXX.edu.in");
+        registerRequest.setCollegeId("2X100X0XXX");
         registerRequest.setDepartment("Computer Science");
         registerRequest.setAcademicYear("3rd Year");
         registerRequest.setPassword("Secret@123");

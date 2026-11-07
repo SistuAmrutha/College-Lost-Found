@@ -141,7 +141,7 @@ export default function RegisterPage() {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  placeholder="alex@college.edu"
+                  placeholder="2X100XOXXX.edu.in"
                   className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
@@ -160,7 +160,7 @@ export default function RegisterPage() {
                   required
                   value={formData.collegeId}
                   onChange={handleChange}
-                  placeholder="CS202601"
+                  placeholder="2X100XOXXX"
                   className="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
