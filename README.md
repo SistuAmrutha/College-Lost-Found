@@ -1,103 +1,92 @@
 # College Lost & Found Management System
 
-A production-grade, full-stack campus asset recovery platform designed for college universities. Built with **React 19**, **Spring Boot 3.3.4**, **MongoDB**, **Spring Security (JWT)**, and **Tailwind CSS**.
+A full-stack web application designed to help college students report, search, and recover lost belongings within their campus. The platform provides separate access for students, administrators, and visitors, with secure authentication and item management features.
 
-[![Spring Boot 3.3.4](https://img.shields.io/badge/Spring%20Boot-3.3.4-brightgreen.svg)](https://spring.io/projects/spring-boot)
-[![React 19](https://img.shields.io/badge/React-19.3-61dafb.svg)](https://react.dev/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Atlas%20%7C%20Local-47A248.svg)](https://www.mongodb.com/)
-[![Tailwind CSS 3.4](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
-[![Security JWT](https://img.shields.io/badge/Security-JWT%20%2B%20BCrypt-red.svg)](https://jwt.io/)
-[![OpenAPI Swagger](https://img.shields.io/badge/Swagger-OpenAPI%203.0-85EA2D.svg)](http://localhost:8080/swagger-ui.html)
-[![Tests Passing](https://img.shields.io/badge/Tests-13%2F13%20Passed-success.svg)](backend)
+## 🚀 Tech Stack
 
----
+**Frontend**
+- React 19
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Axios
+- Lucide React
 
-## 🌟 Key Highlights & Engineering Features
+**Backend**
+- Java 21
+- Spring Boot 3.3.4
+- Spring Security 6
+- JWT Authentication
+- Spring Data MongoDB
+- Maven
 
-- **Multi-Role Access Control (RBAC):** Distinct interfaces and backend permission enforcement for **Guest Visitors**, **Registered Students**, and **Campus Administrators**.
-- **Real-Time Data & Live Stats:** Dynamic public statistics (total reported, active lost, found, returned, and resolution percentages) calculated directly from MongoDB aggregates.
-- **Smart Filtering & Discovery:** Multidimensional search across keywords, lost/found status, 9 campus item categories, specific campus buildings, date ranges, and resolution state.
-- **Secure Ownership Verification Workflow:** Two-step claim submission process with distinctive marks, secret verification questions, proof descriptions, and claimant contact validation.
-- **In-App Student Communication:** Real-time safe chat between finders and claimants to arrange on-campus handoffs without exposing personal phone numbers or addresses.
-- **Administrative Moderation Suite:** Comprehensive admin console with student account suspension/reactivation, item post moderation, abuse dispute tracking, and an immutable security audit log.
-- **Modern Responsive SaaS UI:** Built with Tailwind CSS, custom color palettes, smooth transitions, mobile responsive navigation, and persistent **Light/Dark Mode**.
-- **Cloud & Local Storage Resilient:** Configurable image upload service supporting **Cloudinary** for production and an automatic fallback to local directory storage.
+**Database & Storage**
+- MongoDB
+- Cloudinary (image storage)
 
----
-
-## 🛠️ Architecture & Technology Stack
-
-### Frontend
-- **Framework:** React 19 + Vite 8
-- **Styling:** Tailwind CSS 3.4 with custom campus themes & dark mode
-- **Routing:** React Router DOM v7
-- **Icons:** Lucide React
-- **HTTP Client:** Axios with JWT request & 401 response interceptors
-- **State Management:** React Context API (`AuthContext`, `ThemeContext`, `ToastContext`)
-
-### Backend
-- **Runtime:** Java 21 LTS
-- **Framework:** Spring Boot 3.3.4
-- **Security:** Spring Security 6, JJWT 0.12.6, BCrypt Password Hashing
-- **Persistence:** Spring Data MongoDB (NoSQL)
-- **Validation:** Jakarta Bean Validation (`@Valid`, custom error bindings)
-- **Documentation:** Springdoc OpenAPI 2.6.0 with interactive Swagger UI
-- **Testing:** JUnit 5, Mockito, Spring Boot Test, Flapdoodle Embedded MongoDB
-
-### Database & Storage
-- **Database:** MongoDB (Local Community Server or cloud MongoDB Atlas)
-- **Media Uploads:** Cloudinary API with local multipart storage fallback
+**Testing & Documentation**
+- JUnit 5
+- Mockito
+- Swagger / OpenAPI
 
 ---
 
-## 📁 Repository Structure
+## ✨ Key Features
 
-```
+- **User Authentication:** Secure registration and login using JWT authentication and password hashing.
+- **Role-Based Access Control:** Separate permissions and interfaces for students, administrators, and visitors.
+- **Lost & Found Reporting:** Students can report lost and found items with descriptions, categories, images, and locations.
+- **Smart Search & Filtering:** Search items using keywords, categories, campus buildings, dates, and item status.
+- **Claim Verification:** Students can submit ownership claims with identifying details and supporting information.
+- **In-App Messaging:** Communication between finders and claimants to coordinate item recovery.
+- **Admin Dashboard:** Administrators can manage users, moderate item posts, and review disputes.
+- **Dashboard Statistics:** Displays information about reported, lost, found, and returned items.
+- **Responsive UI:** Mobile-friendly interface with light and dark themes.
+- **Image Uploads:** Supports Cloudinary-based image storage.
+
+---
+
+## 🏗️ Project Architecture
+
+The application follows a frontend-backend architecture.
+
+- **Frontend:** React application responsible for the user interface and API communication.
+- **Backend:** Spring Boot REST APIs responsible for authentication, business logic, and data processing.
+- **Database:** MongoDB stores user accounts, item reports, claims, and messages.
+- **Security:** Spring Security and JWT handle authentication and authorization.
+
+---
+
+## 📂 Project Structure
+
+```text
 college-lost-found/
-├── frontend/                     # React + Vite client
-│   ├── public/                   # Static assets & favicons
+│
+├── frontend/
+│   ├── public/
 │   ├── src/
-│   │   ├── assets/               # Branding graphics & SVGs
-│   │   ├── components/           # Reusable UI (Navbar, Cards, Modals, Badges)
-│   │   ├── context/              # Auth, Theme, and Toast state providers
-│   │   ├── layouts/              # MainLayout, StudentLayout, AdminLayout
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── layouts/
 │   │   ├── pages/
-│   │   │   ├── public/           # Home, Browse, Item Details, How It Works, Terms
-│   │   │   ├── auth/             # Login & Register (with 1-click demo buttons)
-│   │   │   ├── student/          # Dashboard, Report Lost/Found, Claims, Messages
-│   │   │   └── admin/            # Admin Overview, User Moderation, Audit Logs
-│   │   ├── services/             # Axios API modules for all endpoints
-│   │   ├── utils/                # Date, status, and category helpers
-│   │   ├── App.jsx               # Main router & provider wiring
-│   │   ├── main.jsx              # Application entry point
-│   │   └── index.css             # Tailwind base & custom utility layers
+│   │   ├── services/
+│   │   └── utils/
 │   ├── package.json
-│   ├── tailwind.config.js
 │   └── vite.config.js
 │
-├── backend/                      # Spring Boot REST API
+├── backend/
 │   ├── src/
 │   │   ├── main/
-│   │   │   ├── java/com/collegelostfound/
-│   │   │   │   ├── config/       # Security, OpenAPI, Cloudinary, Seeder
-│   │   │   │   ├── controller/   # REST Controllers (Auth, Item, Claim, Message, Admin)
-│   │   │   │   ├── dto/          # Request & Response Data Transfer Objects
-│   │   │   │   ├── exception/    # Global exception handler & custom exceptions
-│   │   │   │   ├── model/        # MongoDB Document entities & Enums
-│   │   │   │   ├── repository/   # Spring Data MongoDB repositories
-│   │   │   │   ├── security/     # JWT filter, Token provider, UserPrincipal
-│   │   │   │   ├── service/      # Business logic services & Cloudinary storage
-│   │   │   │   └── CollegeLostFoundApplication.java
+│   │   │   ├── java/
 │   │   │   └── resources/
-│   │   │       ├── application.properties
-│   │   │       └── .env.example
-│   │   └── test/                 # 13 Automated JUnit 5 & Mockito test suites
+│   │   └── test/
 │   └── pom.xml
 │
-├── docs/                         # In-depth architectural documentation
-│   ├── API_DOCUMENTATION.md      # Complete REST endpoints & payload reference
-│   ├── DATABASE_SCHEMA.md        # Document schemas, indexes & relations
-│   └── SETUP_GUIDE.md           # Step-by-step local setup for Windows & Atlas
+├── docs/
+│   ├── API_DOCUMENTATION.md
+│   ├── DATABASE_SCHEMA.md
+│   └── SETUP_GUIDE.md
 │
 ├── .gitignore
 └── README.md
@@ -105,91 +94,148 @@ college-lost-found/
 
 ---
 
-## ⚡ Quick Start (Windows)
+## ⚙️ Installation and Setup
 
 ### Prerequisites
-1. **JDK 21+** (`java -version`)
-2. **Maven 3.8+** (`mvn -version`)
-3. **Node.js 18+** (`node -v`)
-4. **MongoDB** running locally on `localhost:27017` or a free MongoDB Atlas connection string.
 
----
+Make sure you have installed:
 
-### Step 1: Run the Backend
+1. Java JDK 21 or above
+2. Maven 3.8+
+3. Node.js and npm
+4. MongoDB (local installation or MongoDB Atlas account)
+5. Git
 
-```powershell
-cd C:\Users\S.Amrutha\.gemini\antigravity\scratch\college-lost-found\backend
+### 1. Clone the Repository
 
-# Execute automated test suite (13/13 passing tests)
+```bash
+git clone https://github.com/SistuAmrutha/College-Lost-Found.git
+cd College-Lost-Found
+```
+
+### 2. Configure the Backend
+
+Navigate to the backend folder:
+
+```bash
+cd backend
+```
+
+Configure the required environment variables, including:
+
+- MongoDB connection string
+- JWT secret
+- Cloudinary credentials (if using Cloudinary)
+
+Use the provided `.env.example` and setup documentation as a reference. Do not commit actual secrets to GitHub.
+
+Run backend tests:
+
+```bash
 mvn test
+```
 
-# Start the Spring Boot REST API
+Start the Spring Boot application:
+
+```bash
 mvn spring-boot:run
 ```
-- **API Endpoint:** `http://localhost:8080/api`
-- **Swagger Documentation:** `http://localhost:8080/swagger-ui.html`
 
-*Note: On first startup, `DataSeeder.java` will automatically populate the database with realistic sample campus items, student profiles, and administrator credentials.*
+Backend API:
 
----
+```text
+http://localhost:8080/api
+```
 
-### Step 2: Run the Frontend
+Swagger documentation:
 
-In a new terminal:
-```powershell
-cd C:\Users\S.Amrutha\.gemini\antigravity\scratch\college-lost-found\frontend
+```text
+http://localhost:8080/swagger-ui.html
+```
 
-# Install node dependencies
+### 3. Configure the Frontend
+
+Open another terminal and navigate to the frontend folder:
+
+```bash
+cd frontend
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
 
-# Start the Vite development server
+Configure the backend API URL using the frontend environment configuration.
+
+Start the development server:
+
+```bash
 npm run dev
 ```
-- **Web Portal:** `http://localhost:5173`
+
+Frontend:
+
+```text
+http://localhost:5173
+```
 
 ---
 
-## 👥 Seeded Test Credentials
+## 🧪 Testing
 
-For evaluation and quick grading, use the following pre-seeded credentials or click the **1-Click Demo Login** buttons on the Login page:
+The project includes backend unit tests using JUnit 5 and Mockito.
 
-| Role | Email | Password | Access Area |
-|---|---|---|---|
-| **Administrator** | `admin@college.edu` | `Admin@123` | `/admin` (Moderation, Users, Audit Logs) |
-| **Student** | `john.doe@college.edu` | `Student@123` | `/student` (Report, Claims, Chat, Posts) |
-| **Student** | `sarah.jenkins@college.edu` | `Student@123` | Student Portal |
-| **Student** | `michael.chang@college.edu` | `Student@123` | Student Portal |
+The documented test results include:
 
----
+- Backend: 13 test cases passed.
+- Frontend: Production build verified using Vite.
 
-## 🧪 Automated Testing Results
+Run backend tests:
 
-- **Backend:** 13 of 13 unit tests passed with 100% success rate:
-  - `AuthServiceTest` (Registration uniqueness validation, BCrypt password hashing, JWT token generation).
-  - `ItemServiceTest` (Search & filter pipelines, owner authorization, lifecycle status transitions).
-  - `ClaimServiceTest` (Ownership claim submissions, approval/rejection workflows, permission validations).
-- **Frontend:** Production Vite build verified (`npm run build`) with 0 syntax errors or broken imports.
+```bash
+cd backend
+mvn test
+```
 
----
+Build the frontend:
 
-## 📄 Documentation Links
-- [API Documentation & REST Contracts](docs/API_DOCUMENTATION.md)
-- [Database Schema & Collections Reference](docs/DATABASE_SCHEMA.md)
-- [Windows & Cloud Setup Guide](docs/SETUP_GUIDE.md)
+```bash
+cd frontend
+npm run build
+```
 
 ---
 
-## 💼 Resume & Portfolio Description
+## 📚 Documentation
 
-> **College Lost & Found Management System | Full-Stack Web Application**
-> *Tech Stack: Java 21, Spring Boot 3, React 19, MongoDB, Spring Security, JWT, Tailwind CSS, Vite, Cloudinary, Swagger*
-> - Engineered an enterprise-grade campus asset recovery web application with role-based access for students, administrators, and visitors.
-> - Developed RESTful microservices in Spring Boot 3 with JWT token authentication, BCrypt password encryption, and multi-criteria MongoDB search queries.
-> - Designed a modern responsive user interface in React 19 and Tailwind CSS with theme persistence, live statistics, and safe in-app handoff messaging.
-> - Implemented secure claim verification workflows, content moderation tools, abuse reporting, and an immutable administrator audit log.
-> - Wrote automated test suites in JUnit 5 and Mockito, configured embedded MongoDB testing environments, and published interactive OpenAPI/Swagger documentation.
+Additional project documentation:
+
+- [API Documentation](docs/API_DOCUMENTATION.md)
+- [Database Schema](docs/DATABASE_SCHEMA.md)
+- [Setup Guide](docs/SETUP_GUIDE.md)
 
 ---
 
-## ⚖️ License
-This project is open-source and available under the [MIT License](LICENSE).
+## 💡 Future Enhancements
+
+- Email notifications for claim updates.
+- Advanced item matching and recommendations.
+- College email verification.
+- Deployment with cloud hosting.
+- Improved analytics and reporting.
+
+---
+
+## 👩‍💻 Author
+
+**S. Amrutha**
+
+GitHub: [SistuAmrutha](https://github.com/SistuAmrutha)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
